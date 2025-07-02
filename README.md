@@ -1,3 +1,97 @@
+# Lane Detection and Classification System
+
+This project is a modified version of YOLOPv2, enhanced with improved lane detection and classification capabilities. The system can detect, classify, and annotate different types of lane markings in real-time video feeds.
+
+## Features
+
+- **Accurate Lane Detection**: Uses YOLOPv2 backbone with improved aspect ratio handling
+- **Lane Classification**: Identifies multiple lane types:
+  - White solid lines
+  - Yellow solid lines
+  - White dashed lines
+  - Yellow dashed lines
+  - Road edges
+- **Real-time Processing**: Processes video feeds in real-time with visual overlay
+- **Debug Visualization**: Includes alignment checking and debug output options
+- **Aspect Ratio Preservation**: Maintains proper image geometry through letterboxing
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/matthewatap/Lane-Annotation-.git
+cd Lane-Annotation-
+```
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Download the YOLOPv2 weights and place them in the `weights` directory:
+```bash
+mkdir -p weights
+# Download yolopv2.pt and place it in the weights directory
+```
+
+## Usage
+
+### Basic Usage
+
+Run lane detection on a video file:
+```bash
+python lane_classifier.py --source path/to/your/video.mp4 --output path/to/output.mp4 --weights weights/yolopv2.pt
+```
+
+### Debug Mode
+
+To run with debug visualization:
+```bash
+python lane_classifier.py --source path/to/your/video.mp4 --output path/to/output.mp4 --weights weights/yolopv2.pt --debug
+```
+
+### Parameters
+
+- `--source`: Path to input video file
+- `--output`: Path to save output video
+- `--weights`: Path to YOLOPv2 weights file
+- `--device`: Device to run on ('cuda' or 'cpu')
+- `--debug`: Enable debug mode with visualization
+
+## Project Structure
+
+- `lane_classifier.py`: Main lane detection and classification implementation
+- `demo.py`: Original YOLOPv2 demo script
+- `utils/`: Utility functions and helpers
+- `weights/`: Directory for model weights
+- `data/`: Input and output video directories
+
+## Output Format
+
+The system generates:
+1. Processed video with lane overlays
+2. Lane type labels
+3. Debug visualizations (when enabled):
+   - Original frame
+   - Mask alignment view
+   - Final result with overlays
+
+## Improvements
+
+This version includes several improvements over the base YOLOPv2:
+1. Proper aspect ratio handling through letterboxing
+2. Enhanced lane classification
+3. Improved visualization and overlay system
+4. Debug mode for development and troubleshooting
+
+## License
+
+This project is based on YOLOPv2 and follows its original licensing terms.
+
+## Acknowledgments
+
+- Original YOLOPv2 implementation by CAIC-AD
+- Modified and enhanced by matthewatap
 
 <div align="center">
 <h1> YOLOPv2:rocket:: Better, Faster, Stronger for Panoptic driving Perception </h1>
