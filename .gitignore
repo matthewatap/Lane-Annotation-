@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Debug files
+debug_*.jpg
+debug_*.png
+
+# Data directories
+data/input_videos/
+data/output_videos/
+runs/
+
+# Model weights
+weights/
+
+# IDE
+.vscode/
+.idea/
+
+# Misc
+.DS_Store 

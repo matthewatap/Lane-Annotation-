@@ -35,7 +35,7 @@ def make_parser():
 
 def detect():
     # setting and directories
-    source, weights,  save_txt, imgsz = opt.source, opt.weights,  opt.save_txt, opt.img_size
+    source, weights, save_txt, imgsz = opt.source, opt.weights[0], opt.save_txt, opt.img_size
     save_img = not opt.nosave and not source.endswith('.txt')  # save inference images
 
     save_dir = Path(increment_path(Path(opt.project) / opt.name, exist_ok=opt.exist_ok))  # increment run
